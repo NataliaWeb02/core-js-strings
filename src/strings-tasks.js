@@ -245,9 +245,15 @@ sumOfCodes('My String');
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function startsWith(str, substr) {
+  for (let i = 0; i < substr.length; i += 1) {
+    if (str[i] !== substr[i]) {
+      return false;
+    }
+  }
+  return true;
 }
+startsWith('Hello World', 'World');
 
 /**
  * Checks if a string ends with a specific substring.
@@ -260,10 +266,22 @@ function startsWith(/* str, substr */) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function endsWith(str, substr) {
+  if (typeof str !== 'string' || typeof substr !== 'string') {
+    return false;
+  }
+  if (substr.length > str.length) {
+    return false;
+  }
+  const startIndex = str.length - substr.length;
+  for (let i = 0; i < substr.length; i += 1) {
+    if (str[startIndex + i] !== substr[i]) {
+      return false;
+    }
+  }
+  return true;
 }
-
+endsWith('Hello World', 'World');
 /**
  * Returns a time string in the "mm:ss" format.
  *
@@ -277,9 +295,20 @@ function endsWith(/* str, substr */) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  if (
+    typeof minutes !== 'number' ||
+    typeof seconds !== 'number' ||
+    minutes < 0 ||
+    seconds < 0
+  ) {
+    throw new Error('Input must be non-negative integers');
+  }
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds).padStart(2, '0');
+  return `${formattedMinutes}:${formattedSeconds}`;
 }
+formatTime(0, 45);
 
 /**
  * Returns a string in reverse order.
@@ -291,9 +320,13 @@ function formatTime(/* minutes, seconds */) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  if (typeof str !== 'string') {
+    throw new Error('Input must be a string');
+  }
+  return str.split('').reverse().join('');
 }
+reverseString('abcdef');
 
 /**
  * Returns a string with characters in alphabetical order.
