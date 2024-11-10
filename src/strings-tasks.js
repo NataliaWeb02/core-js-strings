@@ -29,12 +29,12 @@ function getStringLength(str) {
   }
   return str.length;
 }
-console.log(getStringLength('aaaaa'));
-console.log(getStringLength('b'));
-console.log(getStringLength(''));
-console.log(getStringLength());
-console.log(getStringLength(null));
-console.log(getStringLength(undefined));
+getStringLength('aaaaa');
+getStringLength('b');
+getStringLength('');
+getStringLength();
+getStringLength(null);
+getStringLength(undefined);
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -53,11 +53,11 @@ console.log(getStringLength(undefined));
 function isString(value) {
   return typeof value === 'string' || value instanceof String;
 }
-console.log(isString());
-console.log(isString(null));
-console.log(isString([]));
-console.log(isString({}));
-console.log(isString('test'));
+isString();
+isString(null);
+isString([]);
+isString({});
+isString('test');
 
 /**
  * done
@@ -75,9 +75,8 @@ console.log(isString('test'));
 function concatenateStrings(value1, value2) {
   return value1 + value2;
 }
-console.log(concatenateStrings('aa', 'bb'));
-console.log(concatenateStrings('aa', ''));
-console.log(concatenateStrings('', 'bb'));
+concatenateStrings('aa', 'bb');
+concatenateStrings('', 'bb');
 
 /**
  * Returns the first character of the given string.
@@ -90,15 +89,15 @@ console.log(concatenateStrings('', 'bb'));
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar() {
-  const firstChar = 'Jonh Doe';
-  console.log(firstChar.charAt(0));
-  const firstChar1 = 'cat';
-  console.log(firstChar1.charAt(0));
-  const firstChar2 = '';
-  console.log(firstChar2.charAt(0));
+function getFirstChar(str) {
+  if (str.length === 0) {
+    return '';
+  }
+  return str.charAt(0);
 }
-getFirstChar();
+getFirstChar('John Doe');
+getFirstChar('cat');
+getFirstChar('');
 
 /**
  * Removes leading and trailing whitespace characters from the string.
@@ -111,9 +110,10 @@ getFirstChar();
  *   removeLeadingAndTrailingWhitespaces('cat ') => 'cat'
  *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.replace(/^\s+|\s+$/g, '');
 }
+removeLeadingAndTrailingWhitespaces('  Abracadabra');
 
 /**
  * Removes only leading whitespace characters from the string.
@@ -129,9 +129,9 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
 function removeLeadingWhitespaces(str) {
   return str.replace(/^\s+/, '');
 }
-console.log(removeLeadingWhitespaces('  Abracadabra'));
-console.log(removeLeadingWhitespaces('cat '));
-console.log(removeLeadingWhitespaces('\t\t\tHello, World! '));
+removeLeadingWhitespaces('  Abracadabra');
+removeLeadingWhitespaces('cat ');
+removeLeadingWhitespaces('\t\t\tHello, World! ');
 
 /**
  * Removes only trailing whitespace characters from the string.
