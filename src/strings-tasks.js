@@ -20,10 +20,21 @@
  *   getStringLength(undefined) => 0
  */
 function getStringLength(str) {
-  const str2 = str.lenght;
-  return str2;
+  if (str === undefined || str === null) {
+    return 0;
+  }
+
+  if (typeof str !== 'string') {
+    throw new Error('Аргумент должен быть строкой');
+  }
+  return str.length;
 }
 console.log(getStringLength('aaaaa'));
+console.log(getStringLength('b'));
+console.log(getStringLength(''));
+console.log(getStringLength());
+console.log(getStringLength(null));
+console.log(getStringLength(undefined));
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -39,22 +50,14 @@ console.log(getStringLength('aaaaa'));
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString() {
-  const str1 = '';
-  const str1b = typeof str1;
-  console.log(Boolean(str1b));
-  const str2 = null;
-  console.log(Boolean(typeof str2));
-  const str3 = '[]';
-  console.log(Boolean(typeof str3));
-  const str4 = '{}';
-  console.log(Boolean(typeof str4));
-  const string = 'test';
-  console.log(Boolean(typeof string));
-  const newString = string;
-  console.log(Boolean(typeof newString));
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
 }
-isString();
+console.log(isString());
+console.log(isString(null));
+console.log(isString([]));
+console.log(isString({}));
+console.log(isString('test'));
 
 /**
  * done
@@ -95,7 +98,7 @@ function getFirstChar() {
   const firstChar2 = '';
   console.log(firstChar2.charAt(0));
 }
-getFirstChar('');
+getFirstChar();
 
 /**
  * Removes leading and trailing whitespace characters from the string.
@@ -123,9 +126,12 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingWhitespaces(str) {
+  return str.replace(/^\s+/, '');
 }
+console.log(removeLeadingWhitespaces('  Abracadabra'));
+console.log(removeLeadingWhitespaces('cat '));
+console.log(removeLeadingWhitespaces('\t\t\tHello, World! '));
 
 /**
  * Removes only trailing whitespace characters from the string.
