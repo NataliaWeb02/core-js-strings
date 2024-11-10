@@ -19,9 +19,10 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength() {
+  console.log();
 }
+getStringLength('aaaaa');
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -44,8 +45,8 @@ function isString(/* value */) {
 /**
  * Returns the result of concatenation of two strings.
  *
- * @param {string} value1 - The first string to concatenate.
- * @param {string} value2 - The second string to concatenate.
+ * @param {string}  - The first string to concatenate.
+ * @param {string} - The second string to concatenate.
  * @return {string} - The concatenated string.
  *
  * @example
@@ -53,9 +54,12 @@ function isString(/* value */) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings() {
+  const value1 = '';
+  const value2 = 'bb';
+  console.log(value1 + value2);
 }
+concatenateStrings();
 
 /**
  * Returns the first character of the given string.
