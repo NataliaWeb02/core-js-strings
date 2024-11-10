@@ -19,10 +19,11 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength() {
-  console.log();
+function getStringLength(str) {
+  const str2 = str.lenght;
+  return str2;
 }
-getStringLength('aaaaa');
+console.log(getStringLength('aaaaa'));
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -38,11 +39,25 @@ getStringLength('aaaaa');
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString() {
+  const str1 = '';
+  const str1b = typeof str1;
+  console.log(Boolean(str1b));
+  const str2 = null;
+  console.log(Boolean(typeof str2));
+  const str3 = '[]';
+  console.log(Boolean(typeof str3));
+  const str4 = '{}';
+  console.log(Boolean(typeof str4));
+  const string = 'test';
+  console.log(Boolean(typeof string));
+  const newString = string;
+  console.log(Boolean(typeof newString));
 }
+isString();
 
 /**
+ * done
  * Returns the result of concatenation of two strings.
  *
  * @param {string}  - The first string to concatenate.
@@ -54,12 +69,12 @@ function isString(/* value */) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings() {
-  const value1 = '';
-  const value2 = 'bb';
-  console.log(value1 + value2);
+function concatenateStrings(value1, value2) {
+  return value1 + value2;
 }
-concatenateStrings();
+console.log(concatenateStrings('aa', 'bb'));
+console.log(concatenateStrings('aa', ''));
+console.log(concatenateStrings('', 'bb'));
 
 /**
  * Returns the first character of the given string.
@@ -72,9 +87,15 @@ concatenateStrings();
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar() {
+  const firstChar = 'Jonh Doe';
+  console.log(firstChar.charAt(0));
+  const firstChar1 = 'cat';
+  console.log(firstChar1.charAt(0));
+  const firstChar2 = '';
+  console.log(firstChar2.charAt(0));
 }
+getFirstChar('');
 
 /**
  * Removes leading and trailing whitespace characters from the string.
